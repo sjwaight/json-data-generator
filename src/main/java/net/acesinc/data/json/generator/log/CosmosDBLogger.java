@@ -39,7 +39,7 @@ public class CosmosDBLogger implements EventLogger {
     public void logEvent(String event, Map<String, Object> producerConfig) {
         try {
             JsonNode jsonNode = mapper.readTree(event);
-            CosmosItemResponse<Object> item = cosmosContainer.createItem(jsonNode);
+            CosmosItemResponse<JsonNode> item = cosmosContainer.createItem(jsonNode);
             log.info("Document added to Cosmos DB with request charge of " + item.getRequestCharge() + " within session " + item.getSessionToken());
         } catch (Exception e) {
             log.error("Error inserting JSON data into Cosmos DB", e);
