@@ -115,6 +115,12 @@ public class JsonDataGenerator {
                         loggers.add(new CosmosDBLogger(elProps));
                         break;
                     }
+                    // add a case for DynamoDB
+                    case "dynamodb": {
+                        log.info("Adding DynamoDB Logger with properties: " + elProps);
+                        loggers.add(new DynamoDBLogger(elProps));
+                        break;
+                    }
                 }
             }
             if (loggers.isEmpty()) {
