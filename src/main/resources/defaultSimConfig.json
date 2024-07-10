@@ -14,5 +14,11 @@
             "sync": false
     },{
         "type":"logger"
+    },{
+        "type": "dynamodb",
+        "region": "us-west-2",
+        "tableName": "your-table-name",
+        "accessKey": "your-access-key",
+        "secretKey": "your-secret-key"
     }]
 }
